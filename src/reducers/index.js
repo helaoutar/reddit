@@ -45,23 +45,23 @@ const posts = (
 
 const postsBySubreddit = (state = {
     frontend: {
-        isFetching: true,
-        didInvalidate: false,
+        isFetching: false ,
+        didInvalidate: true,
         items: []
     }, 
     reactjs: {
         isFetching: false,
-        didInvalidate: false,
+        didInvalidate: true,
         items: []
     }, 
     askreddit: {
         isFetching: false,
-        didInvalidate: false,
+        didInvalidate: true,
         items: []
     }, 
     jokes: {
         isFetching: false,
-        didInvalidate: false,
+        didInvalidate: true,
         items: []
     }
 }, action) => {

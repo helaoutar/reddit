@@ -7,7 +7,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onClick: (subreddit) => dispatch(actions.getSubredditThreads(subreddit))
+    onClick: (subreddit) => {
+        dispatch(actions.selectSubreddit(subreddit));
+        dispatch(actions.getSubredditThreads(subreddit));
+    }
 });
 
 const Subreddits = connect(

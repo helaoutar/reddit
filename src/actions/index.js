@@ -20,10 +20,22 @@ export const receivePosts = (subreddit, posts) => (
     }
 );
 
-export const getSubredditThreads = subreddit => dispatch => {
-    dispatch(selectSubreddit(subreddit));
-    dispatch(requestPosts(subreddit));
-    fetch(`https://www.reddit.com/r/${subreddit}.json`).then(response => response.json()).then(posts => {
-        dispatch(receivePosts(subreddit, posts));
-    });
+export const getSubredditThreads = subreddit => (dispatch, getState) => {
+    if (fetchIfNeeded(getState())) {
+        dispatch(requestPosts(subreddit));
+        fetch(`https://www.reddit.com/r/${subreddit}.json`).then(response => response.json()).then(posts => {
+            dispatch(receivePosts(subreddit, posts));
+        });
+    }
+};
+
+export const fetchIfNeeded = state => {
+    const posts = state.postsBySubreddit[state.selectedSubreddit];
+    if (!posts) {
+        return true;
+    } else if (posts.isFetching) {
+        return false;
+    } else {
+        return posts.didInvalidate;
+    }
 };

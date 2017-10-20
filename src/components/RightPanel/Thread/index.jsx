@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Thread = ({
     title,
     likes,
@@ -7,8 +9,8 @@ const Thread = ({
 }) => (
     <li>
         <a href={url}>
-            <span class="thread-title">{title}</span>
-            <span class="thread-below">
+            <span className="thread-title">{title}</span>
+            <span className="thread-below">
                 <span>{likes} pts</span>
                 <span>by {op}</span>
                 <span>{comments} comments</span>

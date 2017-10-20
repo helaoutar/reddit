@@ -4,10 +4,23 @@
 }
 
 .title {
-    margin: 0px 30px 10px;
+    margin: 0px 30px 10px 11px;
     font-size: 24px;
     line-height: 40px;
     padding-top: 30px;
+    display: inline-block;
+}
+
+.reload {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    margin-left: 20px;
+    position: relative;
+    top: 6px;
 }
 
 .threads {
